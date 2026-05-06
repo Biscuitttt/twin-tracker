@@ -68,7 +68,7 @@ $branch = git rev-parse --abbrev-ref HEAD 2>&1
 if ($branch -eq "HEAD" -or $branch -eq "") { $branch = "main" }
 
 # push (최초엔 --set-upstream)
-$pushResult = git push --set-upstream origin $branch 2>&1
+$pushResult = git push --set-upstream origin $branch --force 2>&1
 if ($LASTEXITCODE -eq 0) {
     Write-Success "GitHub 저장 완료! → https://github.com/$GITHUB_USER/$REPO_NAME"
 } else {
